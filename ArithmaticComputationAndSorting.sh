@@ -19,8 +19,16 @@ echo "Result:" $resultTwo
 resultThree=`echo "scale=2;$firstInput % $secondInput + $thirdInput" | bc`
 echo "Result:" $resultThree
 
-#TO STORE THE DICTIONARY
+#To store value in the DICTIONARY
 arithmaticOperation[result]=$result
 arithmaticOperation[resultOne]=$resultOne
 arithmaticOperation[resultTwo]=$resultTwo
 arithmaticOperation[resultThree]=$resultThree
+
+#reading the value from dictionary into the array
+for((index=0; index<=${#arithmaticOperation[@]}; index++))
+do
+  array[index]=${arithmaticOperation[result$((index+1))]}
+done
+
+echo "${array[@]}"
