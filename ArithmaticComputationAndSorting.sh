@@ -5,6 +5,8 @@ read -p "Enter first input :" firstInput
 read -p "Enter second input:" secondInput
 read -p "Enter third input :" thirdInput
 
+declare -A arithmaticOperation
+
 result=`echo "scale=2;$firstInput + $secondInput * $thirdInput" | bc`
 echo "Result:" $result
 
@@ -16,3 +18,9 @@ echo "Result:" $resultTwo
 
 resultThree=`echo "scale=2;$firstInput % $secondInput + $thirdInput" | bc`
 echo "Result:" $resultThree
+
+#TO STORE THE DICTIONARY
+arithmaticOperation[result]=$result
+arithmaticOperation[resultOne]=$resultOne
+arithmaticOperation[resultTwo]=$resultTwo
+arithmaticOperation[resultThree]=$resultThree
